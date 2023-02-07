@@ -109,6 +109,10 @@ services:
       - WHITELIST=iplist #optional
       - PEERPORT=peerport #optional
       - HOST_WHITELIST=dnsname list #optional
+      - SPEED_LIMIT_UP_ENABLED=false #optional
+      - SPEED_LIMIT_UP=100 #optional
+      - SPEED_LIMIT_DOWN_ENABLED=false #optional
+      - SPEED_LIMIT_DOWN=100 #optional
     volumes:
       - /path/to/data:/config
       - /path/to/downloads:/downloads
@@ -134,6 +138,10 @@ docker run -d \
   -e WHITELIST=iplist `#optional` \
   -e PEERPORT=peerport `#optional` \
   -e HOST_WHITELIST=dnsname list `#optional` \
+  -e SPEED_LIMIT_UP_ENABLED=false #optional
+  -e SPEED_LIMIT_UP=100 #optional
+  -e SPEED_LIMIT_DOWN_ENABLED=false #optional
+  -e SPEED_LIMIT_DOWN=100 #optional
   -p 9091:9091 \
   -p 51413:51413 \
   -p 51413:51413/udp \

@@ -41,6 +41,22 @@ if [[ -n "${PEERPORT}" ]]; then
     sed -i '/peer-port-random-on-start/c\     "peer-port-random-on-start": false,' /config/settings.json
 fi
 
+if [[ -n "${SPEED_LIMIT_UP_ENABLED}" ]]; then
+    sed -i "/\"speed-limit-up-enabled\"/c\    \"speed-limit-up-enabled\": ${SPEED_LIMIT_UP_ENABLED}," /config/settings.json
+fi
+
+if [[ -n "${SPEED_LIMIT_UP}" ]]; then
+    sed -i "/\"speed-limit-up\"/c\    \"speed-limit-up\": ${SPEED_LIMIT_UP}," /config/settings.json
+fi
+
+if [[ -n "${SPEED_LIMIT_DOWN_ENABLED}" ]]; then
+    sed -i "/\"speed-limit-down-enabled\"/c\    \"speed-limit-down-enabled\": ${SPEED_LIMIT_DOWN_ENABLED}," /config/settings.json
+fi
+
+if [[ -n "${SPEED_LIMIT_DOWN}" ]]; then
+    sed -i "/\"speed-limit-down\"/c\    \"speed-limit-down\": ${SPEED_LIMIT_DOWN}," /config/settings.json
+fi
+
 # permissions
 lsiown abc:abc \
     /config/settings.json \
